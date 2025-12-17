@@ -4,6 +4,17 @@
 @section('content')
     <section class="p-4 bg-white rounded-lg min-h-[50vh]">
         <h1 class="text-3xl font-bold text-[#C0392B] mb-6 text-center">Pekerjaan</h1>
+        @if(session('success'))
+            <div class="mb-4 rounded-lg bg-green-100 border border-green-400 px-4 py-3 text-green-700" role="alert">
+                <p class="font-medium">{{ session('success') }}</p>
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="mb-4 rounded-lg bg-red-100 border border-red-400 px-4 py-3 text-red-700" role="alert">
+                <p class="font-medium">{{ session('error') }}</p>
+            </div>
+        @endif
         <div class="mx-auto max-w-screen-xl">
             <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <a href="{{ route('pekerjaan.add') }}" class="rounded-md bg-green-600 px-4 py-2 text-sm text-white hover:bg-green-700">
