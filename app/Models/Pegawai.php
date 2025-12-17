@@ -10,9 +10,17 @@ class Pegawai extends Model
     use SoftDeletes;
 
     protected $table = 'pegawai';
+    protected $dates = ['deleted_at'];
 
-    public function pegawai()
+    protected $fillable = [
+        'nama',
+        'email',
+        'alamat',
+        'pekerjaan_id'
+    ];
+
+    public function pekerjaan()
     {
-        return $this->hasOne(Pekerjaan::class);
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_id');
     }
 }
